@@ -481,12 +481,12 @@
                 calendarGrid.appendChild(weekdayCell);
             });
             
-            // 建立12月日曆數據 - 修正日期計算
-            const december2026 = createCalendarData(12, 2026);
+            // 建立1月日曆數據 - 修改為1月
+            const january2026 = createCalendarData(1, 2026);
             let hasVisibleEvents = false;
             
             // 生成每一天的單元格
-            december2026.forEach(day => {
+            january2026.forEach(day => {
                 const dayCell = document.createElement('div');
                 dayCell.className = 'day-cell';
                 
@@ -593,7 +593,7 @@
             });
         }
         
-        // 創建月曆數據 - 修正日期計算
+        // 創建月曆數據 - 修改為1月
         function createCalendarData(month, year) {
             const daysInMonth = new Date(year, month, 0).getDate(); // 當月的天數
             const firstDayOfMonth = new Date(year, month - 1, 1).getDay(); // 當月第一天是星期幾
@@ -601,7 +601,7 @@
             const calendarData = [];
             const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
             
-            // 1. 先添加空白單元格（讓12/1對應到正確的星期）
+            // 1. 先添加空白單元格（讓1/1對應到正確的星期）
             for (let i = 0; i < firstDayOfMonth; i++) {
                 calendarData.push({
                     date: '',
